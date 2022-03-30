@@ -29,11 +29,21 @@ html {
 }
 
 body {
+  @font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   line-height: 1.75rem;
   background: var(--body-bg);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
+  font-family: 'RIDIBatang';
+  /*
   font-family: 'Source Sans Pro', 'Microsoft Yahei', sans-serif;
+  */
 }
 
 /* --- Typography --- */
