@@ -5,7 +5,7 @@ categories: [Learn, Kotlin]
 tags: [kotlin, learn]
 ---
 
-## 💙️ Kotlin Firebase
+## 📚 Kotlin Firebase
 
 프로젝트에서 Kotlin으로 Firebase를 연동하여 database에 데이터를 읽고 쓰는 작업을 하였다.
 

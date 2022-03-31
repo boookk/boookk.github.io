@@ -17,6 +17,7 @@ tags: [data structure, python, learn]
 | 정리 | 데이터 접근이 빈번한 경우 사용 | 데이터 변경이 빈번한 경우 사용 |
 
 > Array는 인덱스로 접근이 가능하기 때문에 조회할 때 상수 시간 소요
+{: .prompt-tip }
 
 
 <br><br>

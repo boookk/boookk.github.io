@@ -18,6 +18,7 @@ tags: [data structure, python, learn]
 | isEmpty() | 큐의 사용 여부 반환 |
 
 > FIFO
+{: .prompt-tip }
 
 
 <br>

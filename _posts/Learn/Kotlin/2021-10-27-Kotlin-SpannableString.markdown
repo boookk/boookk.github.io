@@ -5,7 +5,7 @@ categories: [Lean, Kotlin]
 tags: [kotlin, learn]
 ---
 
-## 💙️ Kotlin SpannableString
+## 📚 Kotlin SpannableString
 
 ### ❓ SpannableString
 
@@ -15,8 +15,9 @@ SpannableString class는 텍스트를 출력할 때 텍스트 일부의 색상, 
 
 TextView의 내용 중 오른쪽 디데이에 포인트를 주고 싶어서 SpannableString class를 사용하였다.
 
+<br>
 
-### ❓ Process
+### 📝 Process
 
 #### 1. 아래와 같이 디데이를 변경해 줄 함수를 구현하였다.
 

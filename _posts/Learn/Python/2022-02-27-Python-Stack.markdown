@@ -18,6 +18,7 @@ tags: [data structure, python, learn]
 | isEmpty() | 스택의 사용 여부 반환 |
 
 > LIFO
+{: .prompt-tip }
 
 
 <br>
