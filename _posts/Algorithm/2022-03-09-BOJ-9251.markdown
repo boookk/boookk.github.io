@@ -1,0 +1,63 @@
+---
+title: "[BOJ] 최장 공통 부분 수열"
+date: 2022-03-09 00:00:00 +0300
+categories: [Algorithm]
+tags: [algorithm, boj]
+---
+
+# 📚 <mark style='background-color: #ffd33d'> Longest Common Subsequence </mark>
+
+출처 : <https://www.acmicpc.net/problem/9251>
+
+<br>
+
+## ❓ 최장 공통 부분 수열
+
+두 문자열이 주어졌을 때, 부분 문자열 중 가장 긴 것을 찾는 문제
+
+
+<br>
+
+## 💡 풀이
+```python
+str1 = input()
+str2 = input()
+n, m = len(str1), len(str2)
+dp = [[0] * (m + 1) for _ in range(n + 1)]
+
+for i in range(1, n + 1):
+    for j in range(1, m + 1):
+        if str1[i - 1] == str2[j - 1]:
+            dp[i][j] = dp[i - 1][j - 1] + 1
+        else:
+            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+print(dp[n][m])
+```
+
+<br>
+
+## 📝 해설
+
+#### 1. 아래와 같은 2차원 리스트(이하 dp)가 있다고 가정한다.
+
+![image](https://user-images.githubusercontent.com/76933244/157375325-4e4f8c76-21f4-4999-911c-c61373c957df.png)
+
+
+#### 2. 첫 번째 문자열 j-1번째 문자와 두 번째 문자열 j-1번째 문자가 다르다면, dp[i - 1][j]와 dp[i][j - 1] 중 큰 값을 대입한다.
+
+![image](https://user-images.githubusercontent.com/76933244/157375495-08b0e197-2def-46ef-b287-601cc8d537f2.png)
+
+
+#### 3. 만약 두 문자가 같다면, dp[i - 1][j - 1] + 1 값을 대입한다.
+
+![image](https://user-images.githubusercontent.com/76933244/157375896-aac28b74-879d-4d3a-a87e-ed4e3b413145.png)
+
+
+#### 4. 위의 과정을 반복하면 아래와 같은 리스트가 완성되고, 정답은 가장 마지막 요소가 된다.
+
+![image](https://user-images.githubusercontent.com/76933244/157375958-70936635-35a4-4480-8cff-3faedac4302e.png)
+
+
+
+<br>

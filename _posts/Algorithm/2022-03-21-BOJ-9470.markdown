@@ -1,0 +1,118 @@
+---
+title: "[BOJ] 위상 정렬 🥇3"
+date: 2022-03-21 00:00:00 +0300
+categories: [Algorithm]
+tags: [algorithm, boj]
+---
+
+# 📚 <mark style='background-color: #ffd33d'> Topological Sort </mark>
+
+출처 : <https://www.acmicpc.net/problem/9470>
+
+<br>
+
+## 💡 풀이
+```python
+import sys
+from collections import deque
+
+input = sys.stdin.readline
+
+T = int(input())
+for _ in range(T):
+    k, m, p = map(int, input().split())                 # 테스트 케이스 번호, 노드 개수, 간선 수
+
+    graph = [[] for _ in range(m + 1)]
+    inDegree = [0] * (m + 1)                            # 진입차수
+    dp = [[0] * (m + 1) for _ in range(m + 1)]
+    end = 0                                             # 마지막 노드 번호
+
+    for _ in range(p):                                  # 그래프와 진입 차수 설정
+        a, b = map(int, input().split())
+        graph[a].append(b)
+        inDegree[b] += 1
+
+    queue = deque()
+    for i in range(1, m + 1):                           # 진입 차수가 0인 노드를 queue에 추가
+        if inDegree[i] == 0:
+            queue.append(i)
+            dp[i][i] = 1
+
+    while queue:
+        x = queue.popleft()
+        end = x
+
+        for i in graph[x]:
+            inDegree[i] -= 1
+
+            dp[x][i] = dp[x][x]
+
+            if inDegree[i] == 0:
+                queue.append(i)
+                
+                max_ = 0
+                count = 0
+                for row in range(1, m + 1):
+                    if max_ != 0 and dp[row][i] == max_:    # 가장 큰 강의 개수 카운팅
+                        count += 1
+                    elif dp[row][i] > max_:                 # 가장 큰 강의 개수 찾기
+                        max_ = dp[row][i]
+                        count = 1
+
+                dp[i][i] = max_ if count == 1 else max_ + 1
+
+    print(k, dp[end][end])
+print(*result)
+```
+
+<br>
+
+## 📝 해설
+
+#### 1. 아래와 같은 2차원 리스트(이하 dp)가 있다고 가정한다.
+
+![image](https://user-images.githubusercontent.com/76933244/159220634-ad811136-365a-46c8-bacc-66f0e2228e6e.png){: w="500" h="500" }
+
+
+
+#### 2. 진입 차수가 0인 노드의 번호를 i라고 가정하면, dp[i][i]에 1로 설정한다.
+
+![image](https://user-images.githubusercontent.com/76933244/159221083-4d5c9ef2-753c-4d38-a2cb-58d1d8888252.png){: w="500" h="500" }
+
+
+#### 3. 노드 a에서 노드 b로 가는 경로가 있다면, 진입 차수를 감소시키고 dp[a][b]의 값을 dp[a][a] 값으로 변환한다.
+
+![image](https://user-images.githubusercontent.com/76933244/159222000-ebb41469-4c11-47fb-bae7-e491b6cd5527.png){: w="500" h="500" }
+
+
+#### 4. 진입 차수가 0이 되었다면, queue에 노드 번호를 넣고, 아래의 조건에 따라 dp 테이블의 값을 갱신한다.
+- 노드 번호 v에서 해당 노드로 들어오는 강의 순서 중 가장 큰 값을 i라고 하였을 때
+- 해당 노드로 들어오는 모든 강 중에서 강의 순서가 i인 강이 1개이면, dp[v][v]의 값을 i로 설정한다.
+- i인 강이 2개 이상이면 dp[v][v]의 값을 i + 1로 설정한다.
+
+![image](https://user-images.githubusercontent.com/76933244/159224074-ce7eb3c0-6556-4a86-9f3d-f2fbfe4829e3.png){: w="500" h="500" }
+
+#### 5. 과정 3 ~ 4를 반복하면 아래와 같은 dp 테이블이 만들어진다.
+
+![image](https://user-images.githubusercontent.com/76933244/159224623-867cf686-41f6-4483-a227-529bc525ca68.png){: w="500" h="500" }
+
+#### 6. 마지막 노드를 v라고 한다면, 하천계의 Strahler 순서는 dp[v][v]가 된다.
+
+![image](https://user-images.githubusercontent.com/76933244/159224845-ac8deff2-2697-407a-9e72-63437f4fe6ea.png){: w="500" h="500" }
+
+
+<br>
+
+
+## 💣 고려하지 않아도 되는 사항
+
+#### dp[x][i] = dp[x][x]
+- queue.popleft()를 통해 나온 노드 번호가 v라고 했을 때, dp[v][v] 값은 항상 존재한다.
+
+#### dp[i][i] = max_ if count == 1 else max_ + 1
+- 시작 지점이 아닌 모든 노드에는 진입 간선이 존재하므로 변수 max_는 최소 1의 값을 가지게 된다.
+- dp[i][i]는 시작 지점이 아니기 때문에, 가장 큰 강의 개수 i가 1개인지, 2개 이상인지만을 고려하면 된다.
+
+
+<br>
+

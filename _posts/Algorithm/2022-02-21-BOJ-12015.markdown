@@ -1,0 +1,55 @@
+---
+title: "[BOJ] 최장 증가 부분 수열"
+date: 2022-02-21 00:00:00 +0300
+categories: [Algorithm]
+tags: [algorithm, boj]
+---
+
+# 📚 <mark style='background-color: #ffd33d'> Longest Increasing Subsequence </mark>
+
+출처 : <https://www.acmicpc.net/problem/12015>
+
+<br>
+
+## ❓ 최장 증가 부분 수열
+
+어떤 임의의 수열에서 몇 개의 수들을 제거하면 부분수열을 만들 수 있다.
+
+부분수열 중 **오름차순으로 정렬된 가장 긴 수열**을 **<mark style='background-color: #ffdce0'> 최장 증가 부분 수열 </mark>** 이라고 한다.
+
+
+<br>
+
+## 💡 풀이
+```python
+from bisect import bisect_left
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+# 최장 증가 부분 수열을 저장할 리스트
+lis = []
+
+for a in arr:
+    # 리스트 lis에서 a를 삽입할 가장 왼쪽 인덱스 찾기
+    idx = bisect_left(lis, a)
+    
+    # 인덱스 값이 리스트 lis 길이보다 크거나 같으면 a를 삽입
+    if len(lis) <= idx:
+        lis.append(a)
+    else:
+        lis[idx] = a
+
+print(len(lis))
+```
+
+<br>
+
+## 📝 해설
+### <mark style='background-color: #fff5b1'> bisect </mark>
+- bisect 라이브러리는 정렬된 배열에서 특정 원소를 찾을 때 **O(lonN)** 으로 동작한다.
+
+### <mark style='background-color: #fff5b1'> lis[idx] = a </mark>
+- 인덱스 값이 리스트 lis보다 작으면 해당 인덱스의 위치의 값을 갱신하면서 오름차순으로 정렬된 가장 긴 수열을 만든다.
+
+<br>

@@ -1,0 +1,33 @@
+---
+title: "[프로그래머스] N-Queen"
+date: 2021-12-05 00:00:00 +0300
+categories: [Algorithm]
+tags: [algorithm, programmers]
+---
+
+## 📚 <mark style='background-color: #ffd33d'> N-Queen </mark>
+
+출처 : <https://programmers.co.kr/learn/courses/30/lessons/12952>
+
+<br>
+
+### ❓ 풀이 방법
+
+사실 처음 보자마자 dfs로 풀어야 겠다고 생각하고 이중 for문에 deque를 쓰면서 풀었다.
+
+그 결과 테스트 케이스 2/3 정도 틀렸다 😆
+
+<br>
+
+### 📍 내 풀이의 문제점
+
+퀸이 대각선에 있는 경우를 제대로 고려하지 못한 것으로 분석된다.
+
+<br>
+
+### 💡 해결 방법
+
+<mark style='background-color: #fff5b1'> 퀸은 가로, 세로, 대각선으로 이동할 수 있기 때문에 같은 행, 열, 대각선에 위치할 수 없다. </mark>
+
+1. column 차이와 row 차이가 같은지 확인
+2. 퀸의 위치를 2차원이 아닌 1차원 리스트로 관리
