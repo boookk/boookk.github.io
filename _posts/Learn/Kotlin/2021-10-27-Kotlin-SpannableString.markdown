@@ -1,7 +1,7 @@
 ---
 title: Kotlin SpannableString
 date: 2021-10-27 00:00:00 +0300
-categories: [Lean, Kotlin]
+categories: [Learn, Kotlin]
 tags: [kotlin, learn]
 ---
 
