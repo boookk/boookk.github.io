@@ -18,7 +18,7 @@ tags: [msa]
 ## 📊 Sync&Async Comparison
 ![image](https://user-images.githubusercontent.com/76933244/162745605-b22463c2-2ca7-4e7a-b0c1-533c54350fd8.png)
 
-> 요청자와 처리자가 서로의 시간을 공유하는지 여부에 따라 동기, 비동기 나뉜다.
+> 요청자와 처리자가 서로의 시간을 공유하는지 여부에 따라 동기, 비동기로 구분된다.
 {: .prompt-tip }
 
 <br>
