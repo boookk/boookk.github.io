@@ -5,10 +5,13 @@ categories: [MSA]
 tags: [msa]
 ---
 
-## ❓ Event Driven
-MSA가 적용된 시스템에서 이벤트 발생시 해당 `이벤트 로그`를 보관하고 
+## ❓ Event Driven Architecture
+> 이벤트 기반의 아키텍처 설계 방식
+{: .prompt-tip }
 
-이를 기반으로 동작하며, `비동기 통신`을 통해 시스템 내 통합을 수행하는 아키텍처다.
+- 비동기 통신 방식을 이용해 느슨한 결합을 지향하는 아키텍처
+
+- MSA 시스템에서 `producer`가 이벤트를 `publish`하고, 이벤트를 구독하고 있던 `consumer`가 이벤트를 받아 처리하는 시스템
 
 <br>
 
@@ -58,10 +61,10 @@ Producer에서 Consumer로 이벤트 전달
 - Event Source는 1개 이상일 수 있고, 1개 이상의 Event Processor에게 전달한다.
 
 ### 3. Event Processor
-- 수신된 이벤트에 대한 여러 Action을 수행하는 역할
+- 수신된 이벤트에 대한 여러 행동을 수행하는 역할
 
 ### 4. Event Consumer
-- 이벤트에 대한 처리를 한다.
+- 이벤트를 처리하는 역할
 
 <br>
 
