@@ -187,7 +187,7 @@ Flux.fromIterable(listOf(1, 2, 3, 4))
 - 지금 실행 중인 쓰레드에서 실행
 
 ### <mark style='background-color: #f1f8ff'> Single </mark>
-- Runnable Excutor 실행
+- Runnable Executor 실행
 
 ### <mark style='background-color: #f1f8ff'> Parallel </mark>
 - Core 개수만큼의 쓰레드 생성
