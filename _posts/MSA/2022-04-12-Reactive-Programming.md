@@ -42,7 +42,6 @@ tags: [msa]
 - 기존의 명령형 프로그래밍은 작성한 코드의 순서대로 진행된다.
 - 리액티브 프로그래밍은 데이터의 흐름을 정의하면 데이터의변화 혹은 작업의 종료에 따라 반응하여 진행된다.
 - 데이터 흐름을 따라 하위 로직에 자동으로 변화를 전파할 수 있어야 한다.
-- 함수형 프로그래밍 패러다임 적용
 
 <br>
 
@@ -78,8 +77,6 @@ _https://reactivex.io/_
 > Nonblocking [Backrpessure](https://www.reactivemanifesto.org/ko/glossary#Back-Pressure)를 이용한 비동기 스트림 처리의 표준
 {: .prompt-tip }
 
-- 관찰자 + 반복자
-
 ### 🧐 BackPressure
 - 기존 옵저버 패턴은 `Push` 방식으로, Publisher가 데이터가 변경될 때마다 데이터 생성
 - BackPressure은 `Pull` 방식으로, Subscriber가 필요한 만큼만 요청
@@ -103,7 +100,7 @@ _https://reactivex.io/_
 
 <br>
 
-## Reactor
+## ❓ Reactor
 
 - 스프링 리액티브 개발에 사용되는 Reactive Stream의 구현체 중 하나
 
@@ -178,12 +175,12 @@ _https://reactivex.io/documentation/operators/defer.html_
 - 스케줄러를 설정하지 않으면, 메인 쓰레드에서 동기적으로 실행
 
 ### <mark style='background-color: #f1f8ff'> publishOn() </mark>
-- 신호 처리 스케쥴링
+- 신호 처리 스케줄링
 - next, complete, error 신호 처리 쓰레드 설정
 - 다음 publishOn을 만날 때까지 같은 쓰레드에서 동작
 
 ### <mark style='background-color: #f1f8ff'> subscribeOn() </mark>
-- 구독 처리 스케쥴링
+- 구독 처리 스케줄링
 - 시퀀스를 실행할 쓰레드 결정
 - publishOn을 만날 때까지 같은 쓰레드에서 동작
 - publishOn이 신호를 처리할 쓰레드를 지정하므로, publishOn 뒤에 오는 subscribeOn은 무시된다.
@@ -193,7 +190,7 @@ _https://reactivex.io/documentation/operators/defer.html_
 ## 📊 publishOn() and subscribeOn() Comparison
 
 ### 공통점
-> 스케쥴러를 통해 쓰레드를 분리한다
+> 스케줄러를 통해 쓰레드를 분리한다
 {: .prompt-tip }
 
 ### 차이점
