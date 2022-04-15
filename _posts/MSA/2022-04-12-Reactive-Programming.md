@@ -133,40 +133,6 @@ _https://projectreactor.io/docs/core/release/reference/#mono_
 
 <br>
 
-## 🧶 Sequence 생성
-
-### <mark style='background-color: #f1f8ff'> Just </mark>
-
-
-![image](https://user-images.githubusercontent.com/76933244/163013053-83514770-b451-48ef-873c-b5ce4cc74138.png){: w="500"}
-_https://reactivex.io/documentation/operators/just.html_
-
-- 하나의 item만 방출(emit)하는 observable 생성
-
-### <mark style='background-color: #f1f8ff'> From </mark>
-
-![image](https://user-images.githubusercontent.com/76933244/163012912-d19c9604-846f-4404-a364-bf369d6bc9bf.png){: w="500"}
-_https://reactivex.io/documentation/operators/from.html_
-
-- 다양한 객체와 데이터 유형을 observable로 변환
-- e.g. 리스트를 Flux로 변환
-
-### <mark style='background-color: #f1f8ff'> Empty </mark>
-
-![image](https://user-images.githubusercontent.com/76933244/163012798-cd9abdaa-5991-428a-aedf-08b5cf0e319f.png){: w="500"}
-_https://reactivex.io/documentation/operators/empty-never-throw.html_
-
-- 빈 observable 생성
-
-### <mark style='background-color: #f1f8ff'> Defer </mark>
-
-![image](https://user-images.githubusercontent.com/76933244/163012660-43cdaaa2-a378-41d3-a513-b2b6ee287050.png){: w="500"}
-_https://reactivex.io/documentation/operators/defer.html_
-
-- observer가 구독할 때까지 observable을 생성하지 않고, 각 observer에 대해 새로운 observable 생성
-
-<br>
-
 ## 👮 Schedulers
 > 오퍼레이터를 처리할 쓰레드를 지정한다.
 {: .prompt-tip }
