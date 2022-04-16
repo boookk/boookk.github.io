@@ -155,29 +155,14 @@ _https://projectreactor.io/docs/core/release/reference/#mono_
 
 ## 📊 publishOn() and subscribeOn() Comparison
 
-### 공통점
+### <mark style='background-color: #f1f8ff'> 공통점 </mark>
 > 스케줄러를 통해 쓰레드를 분리한다
 {: .prompt-tip }
 
-### 차이점
-
-#### publishOn()
-```java
-Flux.fromIterable(listOf(1, 2, 3, 4))
-    .map { i -> i * 10 }
-    .publishOn(Schedulers.Elastic())
-```
-- publishOn()을 통해 오퍼레이터가 메인 쓰레드가 아닌, 별도의 쓰레드에서 동작한다.
-- 메인 쓰레드 외 1개의 쓰레드 생성
-
-#### subscribeOn()
-```java
-Flux.fromIterable(listOf(1, 2, 3, 4))
-    .map { i -> i * 10 }
-    .subscribeOn(Schedulers.Elastic())
-```
-- subscribeOn()은 오퍼레이터를 실행할 때마다 새로운 쓰레드에서 실행된다.
-- 위의 코드에서는 하나의 시퀀스에 4개의 데이터가 있기 때문에 4개의 쓰레드가 생성된다.
+### <mark style='background-color: #f1f8ff'> 차이점 </mark>
+> publishOn 메서드는 신호, subscribeOn 메서드는 시퀀스를 처리할 쓰레드 지정<br>
+> publishOn 메서드가 subscribeOn 메서드보다 우선 순위가 높다.
+{: .prompt-tip }
 
 <br>
 
@@ -187,17 +172,23 @@ Flux.fromIterable(listOf(1, 2, 3, 4))
 - 지금 실행 중인 쓰레드에서 실행
 
 ### <mark style='background-color: #f1f8ff'> Single </mark>
-- Runnable Executor 실행
+- 단일 쓰레드를 생성해 계속 재사용
 
 ### <mark style='background-color: #f1f8ff'> Parallel </mark>
 - Core 개수만큼의 쓰레드 생성
 - 주로 CPU를 많이 사용하지만 생명주기가 짧은 작업 실행
 
-### <mark style='background-color: #f1f8ff'> Elastic </mark>
-- 쓰레드 무한정 생성
+> 매번 새로운 쓰레드를 사용한다.
+{: .prompt-tip }
+
+### ~~<mark style='background-color: #f1f8ff'> Elastic </mark>~~
+- ~~쓰레드 무한정 생성~~ @Deprecated
 
 ### <mark style='background-color: #f1f8ff'> BoundedElastic </mark>
 - Default로 Core * 10 만큼의 쓰레드 생성
+
+> 우선적으로 쓰레드 풀에서 놀고 있는 쓰레드를 사용하고, 없으면 새로 만들어 사용한다.
+{: .prompt-tip }
 
 <br>
 
