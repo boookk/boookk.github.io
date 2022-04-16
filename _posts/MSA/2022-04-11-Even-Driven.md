@@ -98,8 +98,10 @@ Producer에서 Consumer로 이벤트 전달
 - 이벤트 처리 비용이 이벤트 생성 비용보다 높을 경우
 
 ### 3. <mark style='background-color: #f1f8ff'> Dead Letter Queue </mark>
-#### 이벤트를 처리하는 데 실패했을 때 어떻게 할 것인가?
-- Retry로 이벤트를 다시 큐로 되돌릴 수 있다.
+> 이벤트를 처리하는 데 실패했을 때 어떻게 할 것인가?
+{: .prompt-info }
+
+- Retry로 이벤트를 다시 큐로 이동시켜 재처리
 - 설정한 Retry limitation 동안 이벤트 처리되지 않을 경우 main queue에서 제거하고 사후 분석을 위해 DLQ로 이동
 
 ### 4. <mark style='background-color: #f1f8ff'> Time To Live </mark>
