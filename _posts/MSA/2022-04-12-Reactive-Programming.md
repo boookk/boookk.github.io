@@ -134,33 +134,33 @@ _https://projectreactor.io/docs/core/release/reference/#mono_
 <br>
 
 ## 👮 Schedulers
-> 오퍼레이터를 처리할 쓰레드를 지정한다.
+> 오퍼레이터를 처리할 스레드를 지정한다.
 {: .prompt-tip }
 
-- Reactor는 비동기 실행을 강제하지 않기 때문에 스케줄러를 사용하여 쓰레드를 지정한다.
-- 스케줄러를 설정하지 않으면, 메인 쓰레드에서 동기적으로 실행
+- Reactor는 비동기 실행을 강제하지 않기 때문에 스케줄러를 사용하여 스레드를 지정한다.
+- 스케줄러를 설정하지 않으면, 메인 스레드에서 동기적으로 실행
 
 ### <mark style='background-color: #f1f8ff'> publishOn() </mark>
 - 신호 처리 스케줄링
-- next, complete, error 신호 처리 쓰레드 설정
-- 다음 publishOn을 만날 때까지 같은 쓰레드에서 동작
+- next, complete, error 신호 처리 스레드 설정
+- 다음 publishOn을 만날 때까지 같은 스레드에서 동작
 
 ### <mark style='background-color: #f1f8ff'> subscribeOn() </mark>
 - 구독 처리 스케줄링
-- 시퀀스를 실행할 쓰레드 결정
-- publishOn을 만날 때까지 같은 쓰레드에서 동작
-- publishOn이 신호를 처리할 쓰레드를 지정하므로, publishOn 뒤에 오는 subscribeOn은 무시된다.
+- 시퀀스를 실행할 스레드 결정
+- publishOn을 만날 때까지 같은 스레드에서 동작
+- publishOn이 신호를 처리할 스레드를 지정하므로, publishOn 뒤에 오는 subscribeOn은 무시된다.
 
 <br>
 
 ## 📊 publishOn() and subscribeOn() Comparison
 
 ### <mark style='background-color: #f1f8ff'> 공통점 </mark>
-> 스케줄러를 통해 쓰레드를 분리한다
+> 스케줄러를 통해 스레드를 분리한다
 {: .prompt-tip }
 
 ### <mark style='background-color: #f1f8ff'> 차이점 </mark>
-> publishOn 메서드는 신호, subscribeOn 메서드는 시퀀스를 처리할 쓰레드 지정<br>
+> publishOn 메서드는 신호, subscribeOn 메서드는 시퀀스를 처리할 스레드 지정<br>
 > publishOn 메서드가 subscribeOn 메서드보다 우선 순위가 높다.
 {: .prompt-tip }
 
@@ -169,25 +169,25 @@ _https://projectreactor.io/docs/core/release/reference/#mono_
 ## 📒 Schedulers 종류
 
 ### <mark style='background-color: #f1f8ff'> Immediate </mark>
-- 지금 실행 중인 쓰레드에서 실행
+- 지금 실행 중인 스레드에서 실행
 
 ### <mark style='background-color: #f1f8ff'> Single </mark>
-- 단일 쓰레드를 생성해 계속 재사용
+- 단일 스레드를 생성해 계속 재사용
 
 ### <mark style='background-color: #f1f8ff'> Parallel </mark>
-- Core 개수만큼의 쓰레드 생성
+- Core 개수만큼의 스레드 생성
 - 주로 CPU를 많이 사용하지만 생명주기가 짧은 작업 실행
 
-> 매번 새로운 쓰레드를 사용한다.
+> 매번 새로운 스레드를 사용한다.
 {: .prompt-tip }
 
 ### ~~<mark style='background-color: #f1f8ff'> Elastic </mark>~~
-- ~~쓰레드 무한정 생성~~ @Deprecated
+- ~~스레드 무한정 생성~~ @Deprecated
 
 ### <mark style='background-color: #f1f8ff'> BoundedElastic </mark>
-- Default로 Core * 10 만큼의 쓰레드 생성
+- Default로 Core * 10 만큼의 스레드 생성
 
-> 우선적으로 쓰레드 풀에서 놀고 있는 쓰레드를 사용하고, 없으면 새로 만들어 사용한다.
+> 우선적으로 스레드 풀에서 놀고 있는 스레드를 사용하고, 없으면 새로 만들어 사용한다.
 {: .prompt-tip }
 
 <br>
@@ -199,11 +199,11 @@ _https://projectreactor.io/docs/core/release/reference/#mono_
 - 시퀀스에서 처리되지 않은 데이터는 그대로 흘러간다.
 
 ### 2. <mark style='background-color: #f1f8ff'> 비동기 처리 </mark>
-- 스케줄러를 이용하여 쓰레드를 쉽게 사용할 수 있다.
+- 스케줄러를 이용하여 스레드를 쉽게 사용할 수 있다.
 
 ### 3. <mark style='background-color: #f1f8ff'> 리소스의 효율적인 사용 </mark>
 - 요청자는 처리자가 작업을 완료하기 전까지 다른 작업을 하거나 리소스를 반납한다.
-- 쓰레드를 점유하지 않는다.
+- 스레드를 점유하지 않는다.
 
 <br>
 
