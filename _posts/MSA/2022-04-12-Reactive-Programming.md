@@ -2,7 +2,7 @@
 title: "Reactive Programming"
 date: 2022-04-12 23:00:00 +0900
 categories: [MSA]
-tags: [msa]
+tags: [msa, spring]
 ---
 
 ## ❓ Reactive System

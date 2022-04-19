@@ -2,7 +2,7 @@
 title: "Reactor Operations"
 date: 2022-04-13 23:00:00 +0900
 categories: [MSA]
-tags: [msa, reactor, reactive]
+tags: [msa, spring, reactor, reactive]
 ---
 
 ## 🧶 생성
@@ -69,6 +69,9 @@ _https://reactivex.io/_
 
 > 동기 처리
 {: .prompt-tip }
+
+> 입력과 리턴 값은 `Mono<T>`
+{: .prompt-warning }
 
 <br>
 
