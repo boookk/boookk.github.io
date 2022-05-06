@@ -103,9 +103,9 @@ git reset --option <commit_id>
 {: .nolineno }
 
 #### 📍 옵션
---hard : Working Directory 내용 변경
---mixed : Working Directory 변경하지 않고 Staging Area를 해당 커밋처럼 변경
---soft : Working Directory, Staging Area 변경하지 않고 HEAD가 가리키는 커밋만 변경
+- --hard : Working Directory 내용 변경
+- --mixed : Working Directory 변경하지 않고 Staging Area를 해당 커밋처럼 변경
+- --soft : Working Directory, Staging Area 변경하지 않고 HEAD가 가리키는 커밋만 변경
 
 
 <br>
@@ -162,9 +162,9 @@ git push -u origin master
 
 
 #### 📍 옵션
--u 옵션 : --set-upstream : 내 컴퓨터의 master 브랜치가 저장소 서버의 master 브랜치를 가르키도록
--u 옵션을 사용할 경우 뒤에 저장소와 branch를 명시하지 않아도 된다.
---force : 강제 업로드
+- -u 옵션 : --set-upstream : 내 컴퓨터의 master 브랜치가 저장소 서버의 master 브랜치를 가르키도록
+- -u 옵션을 사용할 경우 뒤에 저장소와 branch를 명시하지 않아도 된다.
+- --force : 강제 업로드
 
 
 <br>
