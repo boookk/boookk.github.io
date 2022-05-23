@@ -1,23 +1,23 @@
 ---
-title: "Nefilxed"
+title: "Netflixed"
 date: 2022-04-20 23:00:00 +0900
 categories: [MSA]
-tags: [msa, neflix, cloud]
+tags: [msa, netflix, cloud]
 ---
 
-## 🧐 Neflixed
+## 🧐 Netflixed
 
 > 미국 실리콘밸리에서 기존 비즈니스 모델이 붕괴되었을 때를 일컫는 말
 {: .prompt-tip}
 
 <br>
 
-## ✨ Neflix OpenSource Software
+## ✨ Netflix OpenSource Software
 
 > 기존 Legacy 시스템을 클라우드 환경의 MSA로 전환하기 위해 사용한 기술을 공개한 것
 {: .prompt-tip}
 
-### 🏃 Nefilx는 MAS의 선구자
+### 🏃 Netflix는 MSA의 선구자
 
 <br>
 
@@ -72,4 +72,4 @@ tags: [msa, neflix, cloud]
 <br>
 
 ### 출처
-- [Neflix OSS](https://netflix.github.io/)
+- [Netflix OSS](https://netflix.github.io/)
